@@ -4,54 +4,61 @@
 #include "../libft/libft.h"
 #include "../get_next_line/get_next_line.h"
 #include "../minilibx-linux/mlx.h"
-
-typedef struct s_no
-{
-	char* type_idet_NO;
-	int flag;
-} t_no;
-
-typedef struct s_so
-{
-	char	*type_idet_SO;
-	int flag;
-} t_so;
-
-typedef struct s_we
-{
-	char	*type_idet_WE;
-	int flag;
-} t_we;
-
-typedef struct s_ea
-{
-	char	*type_idet_EA;
-	int flag;
-} t_ea;
+#include <error.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
 
 typedef struct s_f
 {
-	char	*type_idet_F;
-	int flag;
+	int red;
+	int green;
+	int blue;
 } t_f;
 
 typedef struct s_c
 {
-	char	*type_idet_C;
-	int flag;
+	int red;
+	int green;
+	int blue;
 } t_c;
+
+typedef struct s_ident
+{
+	char* type_ident_NO;
+	char* type_ident_SO;
+	char* type_ident_WE;
+	char* type_ident_EA;
+	t_c type_ident_C;
+	t_f type_ident_F;
+	int flag_NO;
+	int flag_SO;
+	int flag_WE;
+	int flag_EA;
+	int flag_C;
+	int flag_F;
+} t_ident;
 
 typedef struct s_map
 {
-	t_no type_idet_NO;
-	t_so type_idet_SO;
-	t_we type_idet_WE;
-	t_ea type_idet_EA;
-	t_f type_idet_F;
-	t_c type_idet_C;
-}	t_map;
+	char** map;
+} t_map;
 
-int parsing(char* map_file, t_map* map);
-void free_map_type_idet(t_map* map);
+typedef struct s_map_info
+{
+	t_ident ident;
+	t_map map;
+	char** map_storage;
+}	t_map_info;
+
+int parsing(char* map_file, t_map_info* map_info);
+int parsing_texture(t_map_info* map_info, char* map_i);
+int is_map_valid(t_map_info* map_info);
+void free_map_type_idet(t_map_info* map_info);
 void free_split(char** str);
+void free_map(t_map_info* map_info);
+int check_ident_full(t_ident ident);
+int check_map(char* map_i);
+void init_ident_color(char* map_i, int i, t_ident* ident, char type);
+
 #endif
