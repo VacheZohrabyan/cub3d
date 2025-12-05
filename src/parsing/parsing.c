@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 15:05:41 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/11/13 15:01:26 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/12/04 14:40:15 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int init_map(char* map_file, t_map_info* map_info)
 		return (0);
 	map_info->map_storage = (char**)malloc(sizeof(char*) * (size + 1));
 	if (!(map_info->map_storage))
-		return (0);
+		return (printf("ds\n"), 0);
 	char* buffer;
 	buffer = get_next_line(fd);
 	if (!buffer)
@@ -75,6 +75,8 @@ int parsing(char* map_file, t_map_info* map_info)
 		return (0);
 	}
 	if (!init_map(map_file, map_info) || !is_map_valid(map_info))
+		return (printf("Error\n"), 0);
+	if (!parsing_valid_map(&(map_info->map)))
 		return (printf("Error\n"), 0);
 	return (1);
 }

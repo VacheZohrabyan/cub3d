@@ -33,19 +33,19 @@ int main(int argc, char** argv)
         return (1);
     }
 
-    printf("NO = %s\n", map_info.ident.type_ident_NO);
-    printf("SO = %s\n", map_info.ident.type_ident_SO);
-    printf("WE = %s\n", map_info.ident.type_ident_WE);
-    printf("EA = %s\n", map_info.ident.type_ident_EA);
-    printf("Cred =   %d\n", map_info.ident.type_ident_C.red);
-    printf("Cgreen = %d\n", map_info.ident.type_ident_C.green);
-    printf("Cblue =  %d\n", map_info.ident.type_ident_C.blue);    
-    printf("Fred =   %d\n", map_info.ident.type_ident_F.red);
-    printf("Fgreen = %d\n", map_info.ident.type_ident_F.green);
-    printf("Fblue =  %d\n", map_info.ident.type_ident_F.blue);
-    int i = 0;
-    while (map_info.map.map[i])
-        printf("%s\n", map_info.map.map[i++]);
+    // printf("NO = %s\n", map_info.ident.type_ident_NO);
+    // printf("SO = %s\n", map_info.ident.type_ident_SO);
+    // printf("WE = %s\n", map_info.ident.type_ident_WE);
+    // printf("EA = %s\n", map_info.ident.type_ident_EA);
+    // printf("Cred =   %d\n", map_info.ident.type_ident_C.red);
+    // printf("Cgreen = %d\n", map_info.ident.type_ident_C.green);
+    // printf("Cblue =  %d\n", map_info.ident.type_ident_C.blue);    
+    // printf("Fred =   %d\n", map_info.ident.type_ident_F.red);
+    // printf("Fgreen = %d\n", map_info.ident.type_ident_F.green);
+    // printf("Fblue =  %d\n", map_info.ident.type_ident_F.blue);
+    // int i = 0;
+    // while (map_info.map.map[i])
+    //     printf("%s\n", map_info.map.map[i++]);
     free_map(&map_info);
 
     return (1);

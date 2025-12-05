@@ -42,6 +42,7 @@ typedef struct s_ident
 typedef struct s_map
 {
 	char** map;
+	int count;
 } t_map;
 
 typedef struct s_map_info
@@ -58,7 +59,9 @@ void free_map_type_idet(t_map_info* map_info);
 void free_split(char** str);
 void free_map(t_map_info* map_info);
 int check_ident_full(t_ident ident);
-int check_map(char* map_i);
+int check_map(t_ident ident, char* map_i);
 void init_ident_color(char* map_i, int i, t_ident* ident, char type);
+int parsing_valid_map(t_map* map);
+int check_ident(char* map_i);
 
 #endif

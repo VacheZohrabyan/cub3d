@@ -15,6 +15,7 @@ SRCS = $(SRC_DIR)/main.c \
 	   $(SRC_DIR)/parsing/parsing_texture.c \
 	   $(SRC_DIR)/parsing/parsing_texture_utils.c \
 	   $(SRC_DIR)/parsing/parsing_map.c \
+	   $(SRC_DIR)/parsing/parsing_valid_map.c \
 	   $(SRC_DIR)/parsing/map_valid.c \
 	   $(SRC_DIR)/free/free_map_type_idet.c \
 	   $(SRC_DIR)/free/free_map.c \

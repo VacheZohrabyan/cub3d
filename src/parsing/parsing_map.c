@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 13:28:05 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/11/14 16:04:23 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/11/15 13:38:42 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,13 @@ int check_ident_full(t_ident ident)
     return (1);
 }
 
-int check_map(char* map_i)
+int check_map(t_ident ident, char* map_i)
 {
-    printf("map = %s\n", map_i);
     int i = 0;
+    (void)ident;
     while (map_i[i] == ' ')
         ++i;
-    if (map_i[i] == 'F' || map_i[i] == 'C'
-        || !ft_strncmp(map_i + i, "NO", 2) || !ft_strncmp(map_i + i, "SO", 2)
-        || !ft_strncmp(map_i + i, "WE", 2) || !ft_strncmp(map_i + i, "EA", 2))
+    if (check_ident(map_i))
         return (0);
     while (map_i[i])
     {
