@@ -12,13 +12,20 @@ MLX_DIR = minilibx-linux
 
 SRCS = $(SRC_DIR)/main.c \
 	   $(SRC_DIR)/parsing/parsing.c \
+	   $(SRC_DIR)/parsing/parsing_utils.c \
+	   $(SRC_DIR)/parsing/checking_up_side_down_file.c \
+	   $(SRC_DIR)/parsing/floot_flit_checking.c \
 	   $(SRC_DIR)/parsing/parsing_texture.c \
 	   $(SRC_DIR)/parsing/parsing_texture_utils.c \
+	   $(SRC_DIR)/parsing/parsing_texture_utils_1.c \
+	   $(SRC_DIR)/parsing/parsing_texture_utils_2.c \
 	   $(SRC_DIR)/parsing/parsing_map.c \
 	   $(SRC_DIR)/parsing/parsing_valid_map.c \
 	   $(SRC_DIR)/parsing/map_valid.c \
+	   $(SRC_DIR)/parsing/map_valid_utils.c \
 	   $(SRC_DIR)/free/free_map_type_idet.c \
 	   $(SRC_DIR)/free/free_map.c \
+	   $(SRC_DIR)/free/free_map_map.c \
 	   $(SRC_DIR)/free/free_split.c \
        $(GNL_DIR)/get_next_line.c \
        $(GNL_DIR)/get_next_line_utils.c

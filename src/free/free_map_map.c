@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_split.c                                       :+:      :+:    :+:   */
+/*   free_map_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/09 14:29:12 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/06 13:05:52 by vzohraby         ###   ########.fr       */
+/*   Created: 2025/12/06 11:50:40 by vzohraby          #+#    #+#             */
+/*   Updated: 2025/12/06 13:44:11 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-void	free_split(char **str)
+void	free_map_map(char **map)
 {
 	int	i;
 
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
+	if (map)
+	{
+		i = 0;
+		while (map[i])
+			free(map[i++]);
+		free(map);
+	}
 }
