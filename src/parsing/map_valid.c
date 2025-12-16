@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:19:47 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/06 15:35:35 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/12/07 15:18:22 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	allocate_map_map(int i, char **map_storage, t_map *map)
 			++count;
 		++i;
 	}
-	map->count = count;
+	map->count_of_line = count;
 	map->map = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!map->map)
 		return (0);

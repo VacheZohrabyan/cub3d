@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 15:18:20 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/06 15:18:34 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/12/07 17:25:00 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	loop_map_storage(t_map_info *map_info, int map_line_count, int i)
 		if (!flag)
 		{
 			if (!add_line_texture(map_info, i, &count))
-				return (0);
+				return (printf("add_line_texture\n"), 0);
 		}
 		else
 		{

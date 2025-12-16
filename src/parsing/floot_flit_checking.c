@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 13:34:18 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/06 13:44:45 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/12/07 15:18:16 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static char	**copy_map_pointer(t_map *map)
 	char	**str;
 	int		i;
 
-	str = (char **)malloc(sizeof(char *) * (map->count + 1));
+	str = (char **)malloc(sizeof(char *) * (map->count_of_line + 1));
 	i = 0;
-	while (i < map->count)
+	while (i < map->count_of_line)
 	{
 		str[i] = ft_strdup(map->map[i]);
 		if (!str[i])
@@ -72,7 +72,7 @@ int	floot_fill_recur(t_map *map, int pos_i, int pos_j)
 	if (!floot_fill(map_i, pos_i, pos_j, map_i[pos_i][pos_j]))
 		return (printf("floot fill durs e ekel sahnmanneric"),
 			free_map_map(map_i), 0);
-	if (!check_side_up_down(map->map, map->count))
+	if (!check_side_up_down(map->map, map->count_of_line))
 		return (printf("check_side_up_down\n"), free_map_map(map_i), 0);
 	return (free_map_map(map_i), 1);
 }

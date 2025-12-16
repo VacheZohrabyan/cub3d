@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 13:16:40 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/06 15:56:55 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/12/07 17:51:01 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	delete_space_middle(char *map_i)
 int	check_path_xpm(char *map, int i)
 {
 	int	fd;
-
 	fd = -1;
 	if (ft_strncmp((map + ft_strlen(map)) - 4, ".xpm", ft_strlen(".xpm")))
 		return (printf(".xpm not valid\n"), 0);
@@ -46,12 +45,12 @@ int	add_type_to_struct(char **ident, char *map_i, int i)
 {
 	i += 2;
 	i += delete_space_middle(map_i + i);
-	if (!check_path_xpm(map_i, i))
+	if (check_path_xpm(map_i, i))
 	{
 		*ident = ft_strdup(map_i + i);
 		return (1);
 	}
-	return (0);
+	return (printf("add_type_to_struct_body\n"), 0);
 }
 
 int	parsing_texture(t_map_info *map_info, char *map_i)
@@ -61,7 +60,7 @@ int	parsing_texture(t_map_info *map_info, char *map_i)
 	i = 0;
 	if (!ft_strncmp(map_i, "F", 1) || !ft_strncmp(map_i, "C", 1))
 	{
-		if (!handle_c_f_values(map_i, i, &(map_info->ident)))
+		if (handle_c_f_values(map_i, i, &(map_info->ident)))
 			return (1);
 		return (printf("handle_c_f_values\n"), 0);
 	}
@@ -77,5 +76,5 @@ int	parsing_texture(t_map_info *map_info, char *map_i)
 			return (1);
 		return (printf("handle_we_and_ea\n"), 0);
 	}
-	return (1);
+	return (0);
 }

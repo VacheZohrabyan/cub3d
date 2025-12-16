@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 14:21:11 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/06 16:07:07 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/12/10 13:03:38 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,30 @@ void	initialize_struct_map(t_map_info *map_info)
 int	main(int argc, char **argv)
 {
 	t_map_info	map_info;
-
+	t_game game;
 	if (argc != 2)
 		return (printf("usage: ./cub3d <path/to/map.cub>"), 0);
 	initialize_struct_map(&map_info);
 	if (!parsing(argv[1], &map_info))
-	{
-		free_map(&map_info);
-		return (1);
-	}
+		return (free_map(&map_info), 1);
+	// printf("NO = %s\n", map_info.ident.type_ident_no);
+    // printf("SO = %s\n", map_info.ident.type_ident_so);
+    // printf("WE = %s\n", map_info.ident.type_ident_we);
+    // printf("EA = %s\n", map_info.ident.type_ident_ea);
+    // printf("Cred =   %d\n", map_info.ident.type_ident_c.red);
+    // printf("Cgreen = %d\n", map_info.ident.type_ident_c.green);
+    // printf("Cblue =  %d\n", map_info.ident.type_ident_c.blue);    
+    // printf("Fred =   %d\n", map_info.ident.type_ident_f.red);
+    // printf("Fgreen = %d\n", map_info.ident.type_ident_f.green);
+    // printf("Fblue =  %d\n", map_info.ident.type_ident_f.blue);
+    // int i = 0;
+    // while (map_info.map.map[i])
+    // {
+		
+	// 	printf("%s\n", map_info.map.map[i++]);
+	// } 
+	run_game(&game, &map_info);
+	
 	free_map(&map_info);
 	return (1);
 }

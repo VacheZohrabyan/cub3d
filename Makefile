@@ -1,16 +1,19 @@
 NAME = cub3D
 
 CC = cc
-CFLAGS = -g3 -Wall -Wextra -Werror -Iinc -Ilibft -Iget_next_line -Iminilibx-linux #-fsanitize=address
+CFLAGS = -g3 -Wall -Wextra -Werror -Iinc -Ilibft -Iget_next_line -Iminilibx-linux -fsanitize=address
 MLX_FLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lbsd
 
 SRC_DIR = src
+HEAD_DIR = inc/cub3d.h
 OBJ_DIR = obj
 LIBFT_DIR = libft
 GNL_DIR = get_next_line
 MLX_DIR = minilibx-linux
 
 SRCS = $(SRC_DIR)/main.c \
+	   $(SRC_DIR)/run_game/run_game.c \
+	   $(SRC_DIR)/run_game/init_player.c \
 	   $(SRC_DIR)/parsing/parsing.c \
 	   $(SRC_DIR)/parsing/parsing_utils.c \
 	   $(SRC_DIR)/parsing/checking_up_side_down_file.c \
@@ -42,7 +45,7 @@ all: $(NAME)
 $(NAME): $(LIBFT) $(MLX) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
 
-$(OBJ_DIR)/%.o: %.c Makefile
+$(OBJ_DIR)/%.o: %.c Makefile $(HEAD_DIR)
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 

@@ -6,35 +6,35 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 13:39:46 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/06 13:44:26 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/12/15 10:30:06 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-int	find_player(char **map, int *position_i, int *position_j)
-{
-	int	i;
-	int	j;
+// static int	find_player(char **map, int *position_i, int *position_j)
+// {
+// 	int	i;
+// 	int	j;
 
-	i = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j])
-		{
-			if (map[i][j] == 'N')
-			{
-				*position_i = i;
-				*position_j = j;
-				return (1);
-			}
-			++j;
-		}
-		++i;
-	}
-	return (0);
-}
+// 	i = 0;
+// 	while (map[i])
+// 	{
+// 		j = 0;
+// 		while (map[i][j])
+// 		{
+// 			if (map[i][j] == 'N')
+// 			{
+// 				*position_i = i;
+// 				*position_j = j;
+// 				return (1);
+// 			}
+// 			++j;
+// 		}
+// 		++i;
+// 	}
+// 	return (0);
+// }
 
 int	check_in_map_space_and_tab(char **map, int count)
 {
@@ -94,6 +94,7 @@ int	add_one_to_space(t_map *map)
 
 	i = 1;
 	max_length_map_line = ft_strlen(map->map[0]);
+	map->len = max_length_map_line;
 	while (map->map[i])
 	{
 		if (max_length_map_line < (int)ft_strlen(map->map[i]))

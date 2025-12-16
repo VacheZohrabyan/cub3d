@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 11:42:10 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/06 13:45:07 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/12/15 10:29:34 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,31 @@ int	ft_len_map(char **map)
 	return (count);
 }
 
+
+int	find_player(char **map, int *position_i, int *position_j)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'N')
+			{
+				*position_i = i;
+				*position_j = j;
+				return (1);
+			}
+			++j;
+		}
+		++i;
+	}
+	return (0);
+}
+
 int	parsing_valid_map(t_map *map)
 {
 	int	position_i;
@@ -71,11 +96,9 @@ int	parsing_valid_map(t_map *map)
 		return (printf("add_one_to_space\n"), 0);
 	if (!map->map)
 		return (printf("map->map"), 0);
-	if (!check_side_up_down(map->map, map->count))
+	if (!check_side_up_down(map->map, map->count_of_line))
 		return (printf("check_side_up_down\n"), 0);
-	if (!check_in_map_space_and_tab(map->map, map->count))
+	if (!check_in_map_space_and_tab(map->map, map->count_of_line))
 		return (printf("check_in_map_space_and_tab\n"), 0);
-	if (!find_player(map->map, &position_i, &position_j))
-		return (printf("no player\n"), 0);
 	return (1);
 }
