@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:09:15 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/16 11:45:43 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/12/25 17:14:40 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,16 @@ typedef struct s_img
 	t_texture west;
 } t_img;
 
+typedef struct s_player_utils
+{
+	float cos_angle;
+	float sin_angle;
+	float angle_speed;
+	int speed;
+	int new_x;
+	int new_y;
+} t_player_utils;
+
 typedef struct s_player
 {
 	float x;
@@ -142,19 +152,20 @@ typedef struct s_player
 
 	int left_rotate;
 	int right_rotate;
+	t_player_utils player_utils;
 } t_player;
 
 typedef struct s_game
 {
-	char** map;
-	int map_size_line;
 	void* img;
 	void* mlx;
 	void* win;
+	char** map;
+	char* data;
+	t_map_info* map_info;
 	t_player player;
 	t_img img_t;
-	t_map_info* map_info;
-	char* data;
+	int map_size_line;
 	int size_line;
 	int bpp;
 	int endian;
@@ -162,6 +173,7 @@ typedef struct s_game
 	int displey_heigth;
 	int color_f;
 	int color_c;
+	int is_destroyed;
 } t_game;
 
 int		parsing(char *map_file, t_map_info *map_info);
@@ -182,7 +194,8 @@ int		ft_len_map(char **map);
 int		add_one_to_space(t_map *map);
 char	*add_one_space_and_new_allocate(char *map, int max_length);
 int		check_in_map_space_and_tab(char **map, int count);
-// int		find_player(char **map, int *position_i, int *position_j);
+
+int		find_player(char **map, int *position_i, int *position_j);
 int		handle_no_and_so(char *map_i, t_map_info *map_info, int i);
 int		handle_we_and_ea(char *map_i, t_map_info *map_info, int i);
 int		handle_c_f_values(char *map_i, int i, t_ident *ident);
@@ -193,11 +206,68 @@ int		loop_map_storage(t_map_info *map_info, int map_line_count, int i);
 void	delete_space_front(char **map_i);
 int		allocate_map_map(int i, char **map_storage, t_map *map);
 
-//
-int run_game(t_game* game, t_map_info* map_info);
+// run_game
+// draw.c
+void	draw_texture(t_texture *texture, int start_x, int start_y, t_game *game);
+void	draw_square(int x, int y, int size, int color, t_game* game);
+void	draw_map(t_game *game);
+int		draw_loop(t_game *game);
+void	draw_column(t_game *g, int x, float angle);
+
+// get.c
+t_wall_side get_wall_side(t_ray *ray);
+t_texture *get_texture(t_game *g, t_wall_side side);
+float get_wall_dist(t_ray *ray, t_player *p);
+int get_tex_x(t_ray *ray, t_texture *tex, t_player *p);
+
+// init_player.c
+void	move_player(t_game* game, t_player* player);
+
+// init_utils.c -> init.c
+void	init_ray_member(t_ray* ray, t_player* p, float angle);
+int		init_texture_img(t_game *game, t_img *img, t_map_info *map_info);
+int		init_texture_addr(t_img *img);
+
+// init_utils.c
+void	init_ray_member(t_ray *ray, t_player *p, float angle);
+
+// init.c
+void init_ray(t_ray *ray, t_player *p, float angle);
+int init_texture(t_game* game, t_img* img, t_map_info* map_info);
 void init_player(t_game* game, t_player* player, int width, int heigth);
-int key_realse(int keycode, t_player* player);
-int key_press(int keycode, t_player* player);
-void move_player(t_game* game, t_player* player);
+int init_game(t_game* game, t_map_info* map_info);
+int init_mlx_new(t_game* game);
+
+// key.c
+int player_key_realse(int keycode, t_game* game);
+int player_key_press(int keycode, t_game* game);
+
+// player_speed
+void	player_speed(t_player* player, t_player_utils* player_utils);
+
+// put.c
+void put_pixel(int x, int y, int color, t_game* game);
+void put_texture_pixel(t_texture *texture, int tex_x, int tex_y, int x, int y, t_game *game);
+
+// render.c
+void render(t_game *g);
+
+// run_game_utils.c
+float fixed_distance(float x1, float y1, float x2, float y2, t_game* game);
+float distance(float x, float y);
+int color_to_c(t_c c);
+int color_to_f(t_f f);
+int close_window(void* tmp);
+
+// run_game.c
+int run_game(t_game* game, t_map_info* map_info);
+void clear_image(t_game* game);
+int touch(float px, float py, t_game* game);
+void perform_dda(t_ray *ray, t_game *game);
+
+// destroy
+
+// destroy.c
+void destroy(t_game* game, char* message);
 
 #endif

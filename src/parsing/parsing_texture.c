@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 13:16:40 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/07 17:51:01 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/12/25 15:22:58 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	delete_space_middle(char *map_i)
 int	check_path_xpm(char *map, int i)
 {
 	int	fd;
+
 	fd = -1;
 	if (ft_strncmp((map + ft_strlen(map)) - 4, ".xpm", ft_strlen(".xpm")))
 		return (printf(".xpm not valid\n"), 0);

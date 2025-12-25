@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 14:21:11 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/10 13:03:38 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/12/25 15:14:33 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,6 @@ int	main(int argc, char **argv)
 	initialize_struct_map(&map_info);
 	if (!parsing(argv[1], &map_info))
 		return (free_map(&map_info), 1);
-	// printf("NO = %s\n", map_info.ident.type_ident_no);
-    // printf("SO = %s\n", map_info.ident.type_ident_so);
-    // printf("WE = %s\n", map_info.ident.type_ident_we);
-    // printf("EA = %s\n", map_info.ident.type_ident_ea);
-    // printf("Cred =   %d\n", map_info.ident.type_ident_c.red);
-    // printf("Cgreen = %d\n", map_info.ident.type_ident_c.green);
-    // printf("Cblue =  %d\n", map_info.ident.type_ident_c.blue);    
-    // printf("Fred =   %d\n", map_info.ident.type_ident_f.red);
-    // printf("Fgreen = %d\n", map_info.ident.type_ident_f.green);
-    // printf("Fblue =  %d\n", map_info.ident.type_ident_f.blue);
-    // int i = 0;
-    // while (map_info.map.map[i])
-    // {
-		
-	// 	printf("%s\n", map_info.map.map[i++]);
-	// } 
 	run_game(&game, &map_info);
-	
-	free_map(&map_info);
 	return (1);
 }

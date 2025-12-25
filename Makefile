@@ -1,7 +1,7 @@
 NAME = cub3D
 
 CC = cc
-CFLAGS = -g3 -Wall -Wextra -Werror -Iinc -Ilibft -Iget_next_line -Iminilibx-linux -fsanitize=address
+CFLAGS = -g3 -Wall -Wextra -Werror -Iinc -Ilibft -Iget_next_line -Iminilibx-linux #-fsanitize=address
 MLX_FLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lbsd
 
 SRC_DIR = src
@@ -12,8 +12,19 @@ GNL_DIR = get_next_line
 MLX_DIR = minilibx-linux
 
 SRCS = $(SRC_DIR)/main.c \
+	   $(SRC_DIR)/run_game/draw.c \
+	   $(SRC_DIR)/run_game/get.c \
+	   $(SRC_DIR)/run_game/put.c \
+	   $(SRC_DIR)/run_game/run_game_utils.c \
 	   $(SRC_DIR)/run_game/run_game.c \
+	   $(SRC_DIR)/run_game/render.c \
+	   $(SRC_DIR)/run_game/key.c \
+	   $(SRC_DIR)/run_game/init.c \
+	   $(SRC_DIR)/run_game/init_mlx_new.c \
+	   $(SRC_DIR)/run_game/init_utils.c \
 	   $(SRC_DIR)/run_game/init_player.c \
+	   $(SRC_DIR)/run_game/player_speed.c \
+	   $(SRC_DIR)/destroy/destroy.c \
 	   $(SRC_DIR)/parsing/parsing.c \
 	   $(SRC_DIR)/parsing/parsing_utils.c \
 	   $(SRC_DIR)/parsing/checking_up_side_down_file.c \
