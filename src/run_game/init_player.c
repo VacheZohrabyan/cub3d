@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 16:42:53 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/24 15:33:52 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/12/28 16:23:34 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,28 @@
 
 static int	collides_wall(t_game *game, float x, float y)
 {
-	int	map_x;
-	int	map_y;
-	int	map_h;
+	int	map_x_left;
+	int	map_x_right;
+	int	map_y_top;
+	int	map_y_bottom;
 
-	map_x = (int)(x / BLOCK);
-	map_y = (int)(y / BLOCK);
-	map_h = game->map_size_line;
-	if (map_y < 0 || map_y >= map_h)
+	map_x_left = (int)((x - (WALL_MARGIN * BLOCK)) / BLOCK);
+	map_x_right = (int)((x + (WALL_MARGIN * BLOCK)) / BLOCK);
+	map_y_top = (int)((y - (WALL_MARGIN * BLOCK)) / BLOCK);
+	map_y_bottom = (int)((y + (WALL_MARGIN * BLOCK)) / BLOCK);
+	if (map_y_top < 0 || map_y_bottom >= game->map_size_line)
 		return (1);
-	if (map_x < 0 || map_x >= (int)ft_strlen(game->map[map_y]))
+	if (map_x_left < 0 || map_x_right >= (int)ft_strlen(game->map[map_y_top]))
 		return (1);
-	return (game->map[map_y][map_x] == '1');
+	if (game->map[map_y_top][map_x_left] == '1')
+		return (1);
+	if (game->map[map_y_top][map_x_right] == '1')
+		return (1);
+	if (game->map[map_y_bottom][map_x_left] == '1')
+		return (1);
+	if (game->map[map_y_bottom][map_x_right] == '1')
+		return (1);
+	return (0);
 }
 
 void	move_player(t_game *game, t_player *player)

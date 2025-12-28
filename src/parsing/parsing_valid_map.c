@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 11:42:10 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/25 15:23:24 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/12/28 12:31:23 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_len_map(char **map)
 	return (count);
 }
 
-int	find_player(char **map, int *position_i, int *position_j)
+static int	find_player(char **map, int *position_i, int *position_j)
 {
 	int	i;
 	int	j;

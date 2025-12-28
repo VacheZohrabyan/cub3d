@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 14:21:11 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/25 15:14:33 by vzohraby         ###   ########.fr       */
+/*   Updated: 2025/12/28 15:46:15 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	initialize_struct_map(t_map_info *map_info)
 int	main(int argc, char **argv)
 {
 	t_map_info	map_info;
-	t_game game;
+	t_game		game;
+
 	if (argc != 2)
 		return (printf("usage: ./cub3d <path/to/map.cub>"), 0);
 	initialize_struct_map(&map_info);

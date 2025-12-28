@@ -13,6 +13,7 @@ MLX_DIR = minilibx-linux
 
 SRCS = $(SRC_DIR)/main.c \
 	   $(SRC_DIR)/run_game/draw.c \
+	   $(SRC_DIR)/run_game/draw_utils.c \
 	   $(SRC_DIR)/run_game/get.c \
 	   $(SRC_DIR)/run_game/put.c \
 	   $(SRC_DIR)/run_game/run_game_utils.c \
