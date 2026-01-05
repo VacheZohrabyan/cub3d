@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 17:09:48 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/28 13:24:07 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/05 15:21:44 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	to_paint_the_floor_and_celling(int x, t_game *g)
 		put_pixel(x, y, color_to_c(g->map_info->ident.type_ident_c), g);
 		++y;
 	}
-	y = 0;
+	y = mid;
 	while (y < g->displey_heigth)
 	{
 		put_pixel(x, y, color_to_f(g->map_info->ident.type_ident_f), g);

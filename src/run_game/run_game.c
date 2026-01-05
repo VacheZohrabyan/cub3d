@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 14:20:39 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/28 14:34:59 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/05 15:23:25 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	run_game(t_game *game, t_map_info *map_info)
 	find_player(game->map, &(game->player.x), &(game->player.y));
 	mlx_hook(game->win, 2, 1L << 0, player_key_press, game);
 	mlx_hook(game->win, 3, 1L << 1, player_key_realse, game);
-	mlx_hook(game->win, 17, 0, close_window, &game);
+	mlx_hook(game->win, 17, 0, close_window, game);
 	utils.x = game->display_width;
 	utils.y = game->displey_heigth;
 	utils.size = 10;
