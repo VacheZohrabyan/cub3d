@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 11:42:10 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/28 12:31:23 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/05 17:51:28 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static int	find_player(char **map, int *position_i, int *position_j)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == 'N')
+			if (map[i][j] == 'N' || map[i][j] == 'S'
+				|| map[i][j] == 'W' || map[i][j] == 'E')
 			{
 				*position_i = i;
 				*position_j = j;
@@ -46,6 +47,29 @@ static int	find_player(char **map, int *position_i, int *position_j)
 	return (0);
 }
 
+int	check_other_player(char **map)
+{
+	int	count;
+	int	i;
+	int	j;
+
+	count = 0;
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'N' || map[i][j] == 'S'
+				|| map[i][j] == 'W' || map[i][j] == 'E')
+				++count;
+			++j;
+		}
+		++i;
+	}
+	return (count == 1);
+}
+
 int	parsing_valid_map(t_map *map)
 {
 	int	position_i;
@@ -53,6 +77,8 @@ int	parsing_valid_map(t_map *map)
 
 	position_i = -1;
 	position_j = -1;
+	if (!check_other_player(map->map))
+		return (printf("to many player\n"), 0);
 	if (!find_player(map->map, &position_i, &position_j))
 		return (printf("no player\n"), 0);
 	if (!floot_fill_recur(map, position_i, position_j))

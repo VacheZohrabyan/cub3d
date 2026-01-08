@@ -6,35 +6,11 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 13:39:46 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/15 10:30:06 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 11:31:01 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
-
-// static int	find_player(char **map, int *position_i, int *position_j)
-// {
-// 	int	i;
-// 	int	j;
-
-// 	i = 0;
-// 	while (map[i])
-// 	{
-// 		j = 0;
-// 		while (map[i][j])
-// 		{
-// 			if (map[i][j] == 'N')
-// 			{
-// 				*position_i = i;
-// 				*position_j = j;
-// 				return (1);
-// 			}
-// 			++j;
-// 		}
-// 		++i;
-// 	}
-// 	return (0);
-// }
 
 int	check_in_map_space_and_tab(char **map, int count)
 {

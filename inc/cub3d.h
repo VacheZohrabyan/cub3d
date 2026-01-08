@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:09:15 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/28 16:12:02 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 11:46:41 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@
 # define A 97
 # define S 115
 # define D 100
-# define BLOCK 64
 # define LEFT 65361
 # define RIGHT 65363
+# define BLOCK 64
 # define PI 3.14159265358979
 # define WALL_MARGIN 0.1
 

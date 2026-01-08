@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 14:20:39 by vzohraby          #+#    #+#             */
-/*   Updated: 2026/01/05 15:23:25 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/05 17:51:43 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ static void	find_player(char **map, float *position_i, float *position_j)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == 'N')
+			if (map[i][j] == 'N' || map[i][j] == 'S'
+				|| map[i][j] == 'W' || map[i][j] == 'E')
 			{
 				*position_i = j * BLOCK + BLOCK / 2;
 				*position_j = i * BLOCK + BLOCK / 2;
