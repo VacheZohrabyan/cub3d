@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 13:28:05 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/06 16:13:36 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:16:30 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	check_map(t_ident ident, char *map_i)
 		if (map_i[i] != '1' && map_i[i] != '0'
 			&& map_i[i] != 'N' && map_i[i] != 'S'
 			&& map_i[i] != 'E' && map_i[i] != 'W'
+			&& map_i[i] != 'n' && map_i[i] != 's'
+			&& map_i[i] != 'e' && map_i[i] != 'w'
 			&& map_i[i] != ' ')
 			return (0);
 		++i;

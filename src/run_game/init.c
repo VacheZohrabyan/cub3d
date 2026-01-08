@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 15:30:45 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/25 17:12:07 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:22:56 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ int	init_game(t_game *game, t_map_info *map_info)
 	init_player(game, &(game->player), game->display_width,
 		game->displey_heigth);
 	if (!init_mlx_new(game))
-		return (destroy(game, "init_mlx_new\n"), 0);
+		return (destroy(game, ""), 0);
 	if (!init_texture(game, &(game->img_t), map_info))
-		return (destroy(game, "init_texture\n"), 0);
+		return (destroy(game, ""), 0);
 	return (1);
 }

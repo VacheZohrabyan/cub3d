@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 15:18:20 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/07 17:25:00 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:08:02 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	add_line_map_map(t_map_info *map_info, int *map_line_count, int i)
 {
 	if (!check_map(map_info->ident, map_info->map_storage[i]))
-		return (printf("check_map\n"), 0);
+		return (0);
 	if (!map_info->map.map && !allocate_map_map(
 			i, map_info->map_storage, &(map_info->map)))
-		return (printf("allocate_map_map\n"), 0);
+		return (0);
 	map_info->map.map[*map_line_count]
 		= ft_strdup(map_info->map_storage[i]);
 	if (!map_info->map.map[*map_line_count])
@@ -34,7 +34,7 @@ int	add_line_texture(t_map_info *map_info, int i, int *count)
 	if (check_ident(map_info->map_storage[i]))
 	{
 		if (!parsing_texture(map_info, map_info->map_storage[i]))
-			return (printf("parsing_texture\n"), 0);
+			return (0);
 		++(*count);
 	}
 	return (1);
@@ -54,7 +54,7 @@ int	loop_map_storage(t_map_info *map_info, int map_line_count, int i)
 		if (!flag)
 		{
 			if (!add_line_texture(map_info, i, &count))
-				return (printf("add_line_texture\n"), 0);
+				return (0);
 		}
 		else
 		{

@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:09:15 by vzohraby          #+#    #+#             */
-/*   Updated: 2026/01/08 11:46:41 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 13:53:01 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
-# include "../minilibx-linux/mlx.h"
+// # include "../minilibx-linux/mlx.h"
 # include <error.h>
 # include <errno.h>
 # include <fcntl.h>

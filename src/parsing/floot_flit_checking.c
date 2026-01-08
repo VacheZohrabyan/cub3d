@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 13:34:18 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/07 15:18:16 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:17:02 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 static int	is_walkable(char map_elem, char new_elem)
 {
 	return (map_elem == '0' || map_elem == 'N' || map_elem == 'S'
-		|| map_elem == 'E' || map_elem == 'W' || map_elem == new_elem);
+		|| map_elem == 'E' || map_elem == 'W' || map_elem == new_elem
+		|| map_elem == 'n' || map_elem == 's'
+		|| map_elem == 'e' || map_elem == 'w');
 }
 
 static char	**copy_map_pointer(t_map *map)
@@ -49,9 +51,9 @@ static int	floot_fill(char **map, int i, int j, char pos_elem)
 	int	right;
 
 	if (i < 0 || i >= ft_len_map(map))
-		return (printf("i < 0 || i >= map_len\n"), 0);
+		return (0);
 	if (j < 0 || j >= (int)ft_strlen(map[i]))
-		return (printf("j < 0 || j >= map_len_len\n"), 0);
+		return (0);
 	if (!is_walkable(map[i][j], pos_elem) || map[i][j] == 'X')
 		return (1);
 	map[i][j] = 'X';
@@ -70,9 +72,8 @@ int	floot_fill_recur(t_map *map, int pos_i, int pos_j)
 	if (!map_i)
 		return (0);
 	if (!floot_fill(map_i, pos_i, pos_j, map_i[pos_i][pos_j]))
-		return (printf("floot fill durs e ekel sahnmanneric"),
-			free_map_map(map_i), 0);
+		return (free_map_map(map_i), 0);
 	if (!check_side_up_down(map->map, map->count_of_line))
-		return (printf("check_side_up_down\n"), free_map_map(map_i), 0);
+		return (free_map_map(map_i), 0);
 	return (free_map_map(map_i), 1);
 }

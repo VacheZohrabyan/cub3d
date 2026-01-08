@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 13:31:47 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/06 13:38:39 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:08:57 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	check_up(char *map)
 		while (map[i] == ' ')
 			++i;
 		if (map[i] != '1')
-			return (printf("map-y verevy bac e\n"), 0);
+			return (0);
 		++i;
 	}
 	return (1);
@@ -38,7 +38,7 @@ static int	check_down(char *map)
 		while (map[i] == ' ')
 			++i;
 		if (map[i] != '1')
-			return (printf("map-y nerqevy bac e\n"), 0);
+			return (0);
 		++i;
 	}
 	return (1);
@@ -56,9 +56,9 @@ static int	check_side(char **map, int count)
 		while (map[i][j] == ' ')
 			++j;
 		if (map[i][j] != '1')
-			return (printf("map-y koxqy bacc e dimacic\n"), 0);
+			return (0);
 		if (map[i][ft_strlen(map[i]) - 1] != '1')
-			return (printf("map-koxqy bac e hetevic\n"), 0);
+			return (0);
 		++i;
 	}
 	return (1);

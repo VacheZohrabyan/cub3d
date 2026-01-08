@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 13:16:40 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/25 15:22:58 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:06:37 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int	check_path_xpm(char *map, int i)
 
 	fd = -1;
 	if (ft_strncmp((map + ft_strlen(map)) - 4, ".xpm", ft_strlen(".xpm")))
-		return (printf(".xpm not valid\n"), 0);
+		return (0);
 	fd = open(map + i, O_RDONLY);
 	if (fd < 0)
-		return (printf("open faild\n"), 0);
+		return (0);
 	close(fd);
 	return (1);
 }
@@ -51,7 +51,7 @@ int	add_type_to_struct(char **ident, char *map_i, int i)
 		*ident = ft_strdup(map_i + i);
 		return (1);
 	}
-	return (printf("add_type_to_struct_body\n"), 0);
+	return (0);
 }
 
 int	parsing_texture(t_map_info *map_info, char *map_i)
@@ -63,19 +63,19 @@ int	parsing_texture(t_map_info *map_info, char *map_i)
 	{
 		if (handle_c_f_values(map_i, i, &(map_info->ident)))
 			return (1);
-		return (printf("handle_c_f_values\n"), 0);
+		return (0);
 	}
 	else if (!ft_strncmp(map_i, "NO", 2) || !ft_strncmp(map_i, "SO", 2))
 	{
 		if (handle_no_and_so(map_i, map_info, i))
 			return (1);
-		return (printf("handle_no_and_so\n"), 0);
+		return (0);
 	}
 	else if (!ft_strncmp(map_i, "WE", 2) || !ft_strncmp(map_i, "EA", 2))
 	{
 		if (handle_we_and_ea(map_i, map_info, i))
 			return (1);
-		return (printf("handle_we_and_ea\n"), 0);
+		return (0);
 	}
 	return (0);
 }

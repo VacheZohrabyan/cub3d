@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 14:20:39 by vzohraby          #+#    #+#             */
-/*   Updated: 2026/01/05 17:51:43 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:18:02 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,9 @@ static void	find_player(char **map, float *position_i, float *position_j)
 		while (map[i][j])
 		{
 			if (map[i][j] == 'N' || map[i][j] == 'S'
-				|| map[i][j] == 'W' || map[i][j] == 'E')
+				|| map[i][j] == 'W' || map[i][j] == 'E'
+				|| map[i][j] == 'n' || map[i][j] == 's'
+				|| map[i][j] == 'w' || map[i][j] == 'e')
 			{
 				*position_i = j * BLOCK + BLOCK / 2;
 				*position_j = i * BLOCK + BLOCK / 2;
@@ -101,7 +103,7 @@ int	run_game(t_game *game, t_map_info *map_info)
 	t_utils	utils;
 
 	if (!init_game(game, map_info))
-		return (0);
+		return (printf("Error\ninit_game\n"), 0);
 	find_player(game->map, &(game->player.x), &(game->player.y));
 	mlx_hook(game->win, 2, 1L << 0, player_key_press, game);
 	mlx_hook(game->win, 3, 1L << 1, player_key_realse, game);

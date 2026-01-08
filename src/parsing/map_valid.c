@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:19:47 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/07 15:18:22 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:23:44 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	check_ident(char *map_i)
 		++i;
 	return (!ft_strncmp(map_i + i, "F ", 2)
 		|| !ft_strncmp(map_i + i, "C ", 2)
-		|| !ft_strncmp(map_i + i, "NO ", 2)
+		|| !ft_strncmp(map_i + i, "NO ", 3)
 		|| !ft_strncmp(map_i + i, "SO ", 3)
 		|| !ft_strncmp(map_i + i, "WE ", 3)
 		|| !ft_strncmp(map_i + i, "EA ", 3));

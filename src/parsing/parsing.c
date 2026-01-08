@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 15:05:41 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/06 16:02:46 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 13:53:57 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,7 @@ int	get_line_size_file(char *map_file)
 	size = -1;
 	fd = open(map_file, O_RDONLY);
 	if (fd < 0)
-	{
-		if (errno == EISDIR)
-			printf("map is a directory\n");
-		else
-			perror("open");
 		return (-1);
-	}
 	buffer = get_next_line(fd);
 	while (buffer)
 	{
@@ -67,7 +61,7 @@ char	*open_file_and_allocate_map_storage(int *fd,
 		return (NULL);
 	buffer = get_next_line(*fd);
 	if (!buffer)
-		return (printf("mup is empty\n"), close(*fd), NULL);
+		return (close(*fd), NULL);
 	return (buffer);
 }
 
@@ -101,15 +95,12 @@ static int	init_map(char *map_file, t_map_info *map_info)
 int	parsing(char *map_file, t_map_info *map_info)
 {
 	if (!is_map_valid_format(map_file))
-	{
-		printf("is not valid format .cub\n");
-		return (0);
-	}
+		return (printf("Error\nis not valid format .cub\n"), 0);
 	if (!init_map(map_file, map_info))
-		return (printf("Error init_map\n"), 0);
+		return (printf("Error\ninit_map\n"), 0);
 	if (!is_map_valid(map_info))
-		return (printf("Error is_map_valid\n"), 0);
+		return (printf("Error\nis_map_valid\n"), 0);
 	if (!parsing_valid_map(&(map_info->map)))
-		return (printf("Error parsing_valid_map\n"), 0);
+		return (printf("Error\nparsing_valid_map\n"), 0);
 	return (1);
 }

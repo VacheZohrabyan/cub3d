@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 13:39:46 by vzohraby          #+#    #+#             */
-/*   Updated: 2026/01/08 11:31:01 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:28:33 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,16 @@ int	check_in_map_space_and_tab(char **map, int count)
 	return (1);
 }
 
+static int	check_condition(char tmp)
+{
+	if (tmp != '0' && tmp != '1' && tmp != 'N'
+		&& tmp != 'S' && tmp != 'W' && tmp != 'E'
+		&& tmp != 'n' && tmp != 's' && tmp != 'w'
+		&& tmp != 'e')
+		return (1);
+	return (0);
+}
+
 char	*add_one_space_and_new_allocate(char *map, int max_length)
 {
 	char	*tmp;
@@ -53,8 +63,7 @@ char	*add_one_space_and_new_allocate(char *map, int max_length)
 	i = 0;
 	while (tmp && i < max_length)
 	{
-		if (tmp[i] != '0' && tmp[i] != '1' && tmp[i] != 'N'
-			&& tmp[i] != 'S' && tmp[i] != 'W' && tmp[i] != 'E')
+		if (check_condition(tmp[i]))
 			tmp[i] = '1';
 		++i;
 	}

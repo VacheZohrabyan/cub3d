@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 14:21:11 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/28 15:46:15 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:09:41 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 	t_game		game;
 
 	if (argc != 2)
-		return (printf("usage: ./cub3d <path/to/map.cub>"), 0);
+		return (printf("Error\nusage: ./cub3d <path/to/map.cub>"), 0);
 	initialize_struct_map(&map_info);
 	if (!parsing(argv[1], &map_info))
 		return (free_map(&map_info), 1);

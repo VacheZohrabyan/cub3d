@@ -6,7 +6,7 @@
 /*   By: vzohraby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 17:34:34 by vzohraby          #+#    #+#             */
-/*   Updated: 2025/12/25 15:22:11 by vzohraby         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:09:56 by vzohraby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,10 @@ void	clear_map(t_game *game)
 
 void	destroy(t_game *game, char *message)
 {
+	(void)message;
 	if (!game || game->is_destroyed)
 		return ;
 	game->is_destroyed = 1;
-	if (message)
-		printf("%s\n", message);
 	if (game->mlx)
 		mlx_loop_end(game->mlx);
 	if (game->mlx && game->win)
