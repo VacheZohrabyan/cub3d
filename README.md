@@ -1,144 +1,122 @@
 cub3D
 📌 Description
 
-cub3D is a graphical project inspired by Wolfenstein 3D.
-The goal is to create a real-time 3D view inside a maze using raycasting, based on a configuration file (.cub).
+cub3D is a 3D graphical project inspired by the famous game Wolfenstein 3D, developed as part of the 42 school curriculum.
+The goal of this project is to create a simple raycasting engine using MiniLibX, allowing the player to explore a maze from a first-person perspective.
 
-This project introduces:
+This project helps to understand:
 
-Raycasting math
+. Raycasting principles
+. Basic 3D rendering
+. Event handling
+. Texture mapping
+. Memory management in C
 
-Basic game engine concepts
+🛠 Technologies Used
 
-Event handling (keyboard, window)
+. C
+. MiniLibX
+. Math library (-lm)
+. Linux (X11)
 
-MiniLibX graphics library
+🎮 Features
 
-Parsing and validation
+. First-person 3D view using raycasting
+. Textured walls (North, South, East, West)
+. Player movement:
+    . Move forward / backward
+    . Rotate left / right
+. Collision detection with walls
+. Map parsing from .cub configuration file
+. Floor and ceiling color support
+. Clean exit using ESC key or window close button
 
-🎯 Objectives
-
-Render a 3D environment from a 2D map
-
-Implement raycasting
-
-Handle textures, colors, and player movement
-
-Respect strict memory management
-
-Follow 42 Norm
-
-🛠️ Technologies
-    Language: C
-    Graphics: MiniLibX (Linux)
-    Libraries: libft
-    OS: Linux
-
-📁 Project Structure
-cub3D/
-├── inc/                # Header files
-├── src/                # Source files
-├── libft/              # Libft library
-├── minilibx-linux/     # MiniLibX
-├── xpm/                # Wall textures (.xpm)
-├── Makefile
-└── README.md
-
-🗺️ Map Format (.cub)
+🗺 Map Format (.cub)
 
 Example:
 
-NO textures/wall_north.xpm
-SO textures/wall_south.xpm
-WE textures/wall_west.xpm
-EA textures/wall_east.xpm
+NO ./xpm/north.xpm
+SO ./xpm/south.xpm
+WE ./xpm/west.xpm
+EA ./xpm/east.xpm
 
 F 220,100,0
 C 225,30,0
 
 111111
 100001
+101101
 1000N1
-100001
 111111
 
-Rules:
+Map Rules:
 
-Map must be closed by walls (1)
-
-One player position only: N, S, E, W
-
-Colors are RGB values
-
-Textures must be valid .xpm files
+. 1 → Wall
+. 0 → Empty space
+. N, S, E, W → Player starting position and orientation
+. Map must be closed/surrounded by walls
 
 🎮 Controls
-Key	Action
-W	Move forward
-S	Move backward
-A	Move left
-D	Move right
-← →	Rotate camera
-ESC	Exit game
-❌ (Window)	Exit game
-▶️ Compilation & Run
+Key	            Action
+W	            Move forward
+S	            Move backward
+A	            Rotate left
+D	            Rotate right
+ESC	            Exit program
+Window ❌	   Exit program
+
+⚙️ Installation & Usage
+1. Clone the repository
+git clone https://github.com/yourusername/cub3D.git
+cd cub3D
+
+2. Compile
 make
-./cub3D maps/map.cub
 
+3. Run
+./cub3D maps/example.cub
 
-To clean:
+🧪 Debugging
 
-make clean
-make fclean
-make re
+You can check for memory leaks using Valgrind:
 
-🚨 Error Handling
+valgrind --leak-check=full ./cub3D maps/example.cub
 
-The program exits with an error message if:
+📁 Project Structure
+cub3D/
+|── get_next_line/
+├── inc/
+│   └── cub3d.h
+├── libft/
+├── minilibx-linux/
+├── src/
+│   └── destroy  
+|   └── free
+|   └── parsing 
+|   └── run_game
+|   └── main.c
+├── maps/
+├── Makefile
+|── cub3d.cub
+└── README.md
 
-The map is invalid
+❗ Error Handling
 
-Textures are missing or incorrect
+. Invalid map format
+. Missing or invalid textures
+. Multiple or missing player positions
+. Open maps (not surrounded by walls)
+. Invalid RGB values
 
-Colors are malformed
+📚 Learning Outcomes
 
-Memory allocation fails
-
-Arguments are incorrect
-
-🧠 Raycasting Overview
-
-Cast one ray per screen column
-
-Calculate wall distance
-
-Choose texture based on hit direction
-
-Draw vertical stripes
-
-Apply floor and ceiling colors
-
-📏 Norm & Memory
-
-Fully compliant with 42 Norm
-
-No memory leaks (checked with valgrind)
-
-Proper resource cleanup on exit
-
-🏁 Result
-
-This project provides a solid foundation in:
-
-Graphics programming
-
-Game loop logic
-
-Mathematical problem solving
-
-Low-level memory management
+. Understanding raycasting and basic 3D engines
+. Working with low-level graphics
+. Parsing complex input files
+. Event-driven programming
+. Robust memory management in C
 
 👤 Author
 
 Vache Zohrabyan
-42 Student
+42 Yerevan / National Polytechnic University of Armenia
